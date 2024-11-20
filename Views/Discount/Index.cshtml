@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = "My Discount";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model != null)
+{
+    <p>Your discount: @Model</p>
+}
+else
+{
+    <p>No discount available.</p>
+}

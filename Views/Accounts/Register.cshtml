@@ -1,0 +1,70 @@
+@model TaskAuthenticationAuthorization.ViewModels.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+<h4>New User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Register" method="post">
+            <div class="form-group">
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName" type="text" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                  <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" type="text" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                  <div class="form-group">
+                    <label asp-for="Address"></label>
+                    <input asp-for="Address" type="text" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+    <label asp-for="Discount" class="control-label"></label>
+    <select asp-for="Discount" class="form-control" asp-items="Html.GetEnumSelectList<Discount>()"></select>
+    <span asp-validation-for="Discount" class="text-danger"></span>
+</div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <p>Already have an account? <a asp-action="Login">Login here</a></p>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
